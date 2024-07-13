@@ -1,17 +1,17 @@
 const data = [{
-    q: 'what is the first alphbet',
-    a1: ["A", true],
-    a2: "B",
-    a3: 'c'
+    q: 'Which is the largest animal on land?',
+    a1: ["elephant", true],
+    a2: "giraffe",
+    a3: 'hippo'
 },
 {
-    q: 'what is the numbre',
-    a1: ["1", true],
-    a2: "5",
-    a3: '3'
+    q: 'which is smallest country in the world?',
+    a1: ["Vatican City", true],
+    a2: "Monaco",
+    a3: 'Nauru'
 },
 {
-    q: 'what is the capital of UK',
+    q: 'what is the capital of UK?',
     a1: "Paris",
     a2: ["London", true],
     a3: 'Madrid'
