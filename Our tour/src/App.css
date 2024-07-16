@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.container {
+  height: fit-content;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0px 5%;
+  background-color: #f8fafc;
+}
+
+.theTitle { background-color: #f8fafc; padding: 2rem 0 2rem 0; }
+
+.theTitle h1 {
+  padding: 4rem 0 3rem 0;
+  text-decoration: underline 3px rgb(93, 218, 93);
+  text-underline-offset: 2rem;
+  text-align: center;
+}
+
+.card {
+  height: min-content;
+  width: auto;
+  background-color: #ffff;
+  margin: 1rem;
+  border-radius: 5px;
+  border: 1px groove rgb(163, 163, 163);
+}
+
+.img {
+  height: 20rem;
+  width: auto;
+  background-size: 120% 95%;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  justify-content: left;
+}
+
+.card h3 { text-align: center;}
+
+.card p { padding: 0.8rem; color: rgb(116, 113, 113);}
+
+.btn {
+  background-color: #ffff;
+  color: rgb(93, 218, 93);
+  border: 1px solid rgb(93, 218, 93);
+  width: 80%;
+  margin: 2rem;
+  height: 2rem;
+}
+
+.btn:hover {
+  color: #ffff;
+  background-color: rgb(67, 179, 67);
+  transition: 0.3s ease;
+}
+
+.img p {
+  background-color: #047857;
+  padding: 10px;
+  margin: 0;
+  color: white;
+  display: inline-flex;
+  border-radius: 5px 0;
+  text-align: end;
+}
+
+.card h4 { color: rgb(67, 179, 67); cursor: pointer; }
+
+.refrech {
+  width: 50%;
+  height: 3rem;
+  color: rgb(67, 179, 67);
+  cursor: pointer;
+  margin: 5% 25%;
+}
