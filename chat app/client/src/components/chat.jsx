@@ -1,24 +1,43 @@
-import React, { useState } from 'react'
-
+import React, { useState } from 'react';
+import './chat.css';
 
 function Chat() {
-const [userMessage, setUserMessage] = useState("");
+  const [userMessage, setUserMessage] = useState("");
 
-function hundleCLick(){
+  function handleClick() {
     console.log(userMessage);
-    setUserMessage("")
-    
-}
+    setUserMessage("");
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      handleClick();
+    }
+  }
+
   return (
-    <div>
+    <div className='container'>
+      <div className='chat-box'>
         <div className='header'>Hello there!</div>
-        <div className='body'></div>
-        <div className='footer'>
-            <input type="text" placeholder='Hello...' value={userMessage} onChange={(e)=>{setUserMessage(e.target.value)}}/>
-            <button onClick={hundleCLick}>&#8618;</button>
+        <div className='body'>
+          <ul>
+            <li>hello there!</li>
+            <li>how are you?</li>
+          </ul>
         </div>
+        <div className='footer'>
+          <input
+            type="text"
+            placeholder='Hello...'
+            value={userMessage}
+            onChange={(e) => setUserMessage(e.target.value)}
+            onKeyPress={handleKeyPress}
+          />
+          <button onClick={handleClick}>&#8618;</button>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Chat
+export default Chat;
