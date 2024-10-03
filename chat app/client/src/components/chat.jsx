@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './chat.css';
+import { io } from 'socket.io-client';
 
 function Chat() {
-  const [userMessage, setUserMessage] = useState("");
+  const [socket, setSocket] = useState(null);
+  const [userMessage, setUserMessage] = useState('');
 
-  function handleClick() {
-    console.log(userMessage);
-    setUserMessage("");
-  }
+  useEffect(() => {
+    //  Create a new socket connection
+    const connection = io('http://localhost:4000');
+    //  Store the connection in state
+    setSocket(connection);
+    //  Set up event listener
+    connection.on("the message", (data) => {
+      console.log("Message from server:", data);
+    });
+    // Cleanup function
+    return () => connection.close();
+  }, []);
 
-  function handleKeyPress(event) {
-    if (event.key === "Enter") {
-      handleClick();
+  async function handleSubmit() {
+    if (userMessage !== '') {
+      const messageData = {
+        message: userMessage,
+        time: new Date().getHours() + ':' + new Date().getMinutes(),
+      };
+
+      setUserMessage('');
+      await socket.emit('send_message', messageData);
     }
   }
 
@@ -31,9 +47,9 @@ function Chat() {
             placeholder='Hello...'
             value={userMessage}
             onChange={(e) => setUserMessage(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onKeyPress={(e) => e.code === 'Enter' && handleSubmit()}
           />
-          <button onClick={handleClick}>&#8618;</button>
+          <button onClick={handleSubmit}>&#8618;</button>
         </div>
       </div>
     </div>
